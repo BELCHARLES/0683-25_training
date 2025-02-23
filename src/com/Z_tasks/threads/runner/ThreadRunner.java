@@ -16,7 +16,7 @@ import com.Z_tasks.threads.task.threadLocal.ThreadLocalDemo;
 import com.generalutils.logger.ThreadLogger;
 
 public class ThreadRunner {
-	private static Logger logger = ThreadLogger.getLogger();
+	private static Logger LOGGER = ThreadLogger.getLogger();
 
 	//helper methods
 	
@@ -35,28 +35,28 @@ public class ThreadRunner {
 	}
 	
 	private void printExtendedThread(ExtendedThread thread) {
-		logger.info("Thread name: "+thread.getName()+" Priority: "+ thread.getPriority()+" State: "+thread.getState());
+		LOGGER.info("Thread name: "+thread.getName()+" Priority: "+ thread.getPriority()+" State: "+thread.getState());
 	}
 	
 	private void printRunnableThread(Thread thread) {
-		logger.info("Thread name: "+thread.getName()+" Priority: "+ thread.getPriority()+" State: "+thread.getState());
+		LOGGER.info("Thread name: "+thread.getName()+" Priority: "+ thread.getPriority()+" State: "+thread.getState());
 	}
 	
 	private void dumpThreadsWithLocks() {
-		logger.warning("<< =============================================================================================== >>");
+		LOGGER.warning("<< =============================================================================================== >>");
 		ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
 		ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(true, true);
 		for(ThreadInfo threadInfo : threadInfos) {
-			logger.log(Level.WARNING,"{0}",threadInfo);
+			LOGGER.log(Level.WARNING,"{0}",threadInfo);
 		}
-		logger.warning("<< =============================================================================================== >>");
+		LOGGER.warning("<< =============================================================================================== >>");
 	}
 	
 	private void dumpIdGivenThreads(long[] threadIds) {
 		ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();
 		ThreadInfo[] threadInfos = threadMXBean.getThreadInfo(threadIds,true, true);
 		for(ThreadInfo threadInfo : threadInfos) {
-			logger.log(Level.WARNING,"{0}",threadInfo);
+			LOGGER.log(Level.WARNING,"{0}",threadInfo);
 		}
 	}
 	
@@ -71,9 +71,9 @@ public class ThreadRunner {
 	
 	private void takeThreadDump(int dumpCount,long dumpInterval) throws InterruptedException {
 		for(int i = 0;i<dumpCount;i++) {
-			logger.warning("Thread dump "+(i+1)+" :");
+			LOGGER.warning("Thread dump "+(i+1)+" :");
 			dumpThreadsWithLocks();
-			logger.warning("<< ======================================================================= >>");
+			LOGGER.warning("<< ======================================================================= >>");
 			Thread.sleep(dumpInterval);
 		}
 	}
@@ -93,13 +93,13 @@ public class ThreadRunner {
 	private Thread startMonitorThread() {
 		Thread monitorThread = new Thread(()->{
 			for(int i = 0;i<10;i++) {
-				logger.warning("Thread dump "+(i+1)+" :");
+				LOGGER.warning("Thread dump "+(i+1)+" :");
 				dumpThreadsWithLocks();
-				logger.warning("<< ======================================================================= >>");
+				LOGGER.warning("<< ======================================================================= >>");
 				try {
 					Thread.sleep(10000);
 				} catch (InterruptedException e) {
-					logger.log(Level.SEVERE,"Exception occurred",e);
+					LOGGER.log(Level.SEVERE,"Exception occurred",e);
 				}
 			}
 		});
@@ -110,10 +110,10 @@ public class ThreadRunner {
 	private void stopThreads(int count,long threadStopDelay,List<ExtendedThread> extendedThreads,List<RunnableThread> runnableThreads) throws InterruptedException {
 		for (int i = 0; i < count; i++) {
             extendedThreads.get(i).stopThread();
-            logger.info("Stopped: " + extendedThreads.get(i).getName());
+            LOGGER.info("Stopped: " + extendedThreads.get(i).getName());
             
             runnableThreads.get(i).stopThread();
-            logger.info("Stopped: " + runnableThreads.get(i).getThread().getName());
+            LOGGER.info("Stopped: " + runnableThreads.get(i).getThread().getName());
             
             Thread.sleep(threadStopDelay); 
         }
@@ -126,7 +126,7 @@ public class ThreadRunner {
 	    for (RunnableThread thread : runnableThreads) {
 	        thread.getThread().join();
 	    }
-		logger.info("All tasks completed.");
+		LOGGER.info("All tasks completed.");
 	}
 	
 	public void printExtendedThreadDetails(Scanner sc) throws InterruptedException {
@@ -234,7 +234,7 @@ public class ThreadRunner {
 		
 		monitorThread.join();
 		
-		logger.warning("Final thread dump");
+		LOGGER.warning("Final thread dump");
 		takeThreadDump(1,0);
 
 	}
@@ -246,7 +246,7 @@ public class ThreadRunner {
 	            try {
 	                sleep(Thread.currentThread());
 	            } catch (InterruptedException e) {
-	                logger.log(Level.SEVERE, "Exception occurred", e);
+	                LOGGER.log(Level.SEVERE, "Exception occurred", e);
 	            }
 	        });
 	    }
@@ -261,9 +261,11 @@ public class ThreadRunner {
 		Thread.sleep(10000);
 	}
 	
-	public void threadLocalDemo() {
+	public void threadLocalDemo(Scanner sc) {
 		for(int i = 0;i<2;i++) {
-			new Thread(()->new ThreadLocalDemo().startProcess()).start();
+			System.out.println("Enter mailid for thread - "+(i+1));
+			String mailId = sc.nextLine();
+			new Thread(()->new ThreadLocalDemo(mailId)).start();
 		}
 	}
 	
@@ -304,12 +306,12 @@ public class ThreadRunner {
 						runner.analyzeSyncNature();
 						break;
 					case 8:
-						runner.threadLocalDemo();
+						runner.threadLocalDemo(sc);
 						break;
 				}
 			}
 			catch(Exception e){
-				logger.log(Level.SEVERE,"Exception occurred",e);
+				LOGGER.log(Level.SEVERE,"Exception occurred",e);
 			}
 			runner.printChoiceList();
 			choice = sc.nextInt();
