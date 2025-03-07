@@ -1,0 +1,8 @@
+Mar 05, 2025 3:52:58 PM com.ztasks.regex.runner.RegexRunner matchStringPatterns
+INFO: ty6,ghjuioty6, starts with ty6, : true
+Mar 05, 2025 3:52:58 PM com.ztasks.regex.runner.RegexRunner matchStringPatterns
+INFO: ty6,ghjuioty6, ends with ty6, : true
+Mar 05, 2025 3:52:58 PM com.ztasks.regex.runner.RegexRunner matchStringPatterns
+INFO: ty6,ghjuioty6, contains  ty6, : true
+Mar 05, 2025 3:52:58 PM com.ztasks.regex.runner.RegexRunner matchStringPatterns
+INFO: ty6,ghjuioty6, exactly matches with  ty6, : false

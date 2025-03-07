@@ -1,0 +1,4 @@
+Mar 05, 2025 2:52:54 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
+INFO: 2we - not a alphanumeric word
+Mar 05, 2025 2:52:54 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
+INFO: 2we is alphanumeric

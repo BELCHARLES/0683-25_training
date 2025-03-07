@@ -5,12 +5,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList; 
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import com.exception.BoundaryCheckException;
 import com.exception.InvalidArgumentException;
 
 public class GeneralUtils{
+	
+	private static final Map<String,Pattern> PATTERN_CACHE = new ConcurrentHashMap<>();
+	
+	public static final String NAMEPATTERN = "^[a-zA-Z\\s]{1,20}$";
+	public static final String MAILPATTERN = "^\\S+@\\S+\\.\\S+$";
+	public static final String PHONEPATTERN = "^\\d{10}$";
+	
 	public static void checkObjArgIsNull(Object obj) throws InvalidArgumentException {
 		if (obj == null) {
 			throw new InvalidArgumentException("Argument cannot be null,pass a valid argument");
@@ -155,6 +165,31 @@ public class GeneralUtils{
         file.createNewFile();
         return file;
     }
+	
+	public static Pattern getPattern(String regex) throws InvalidArgumentException {
+		checkObjArgIsNull(regex);
+		return PATTERN_CACHE.computeIfAbsent(regex, Pattern::compile);
+	}
+	
+	//for storing compiled regex 
+	public static boolean validatePattern (String regex,String input) throws InvalidArgumentException {
+		checkObjArgIsNull(input);
+		Pattern pattern = getPattern(regex);
+		Matcher matcher = pattern.matcher(input);
+		return matcher.matches();
+	}
+	
+	//regex compilation storage not required
+	public static boolean matchPattern(String regex,String input) throws InvalidArgumentException {
+		checkObjArgIsNull(input);
+		checkObjArgIsNull(regex);
+		return Pattern.matches(regex, input);
+	}
+	
+	public static String quote(String input) throws InvalidArgumentException {
+		checkObjArgIsNull(input);
+		return Pattern.quote(input);
+	}
 }
 
 //startindex logic for string delimiter
