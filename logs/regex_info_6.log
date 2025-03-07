@@ -1,0 +1,4 @@
+Mar 05, 2025 2:55:28 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
+INFO: re3 is alphanumeric
+Mar 05, 2025 2:55:54 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
+INFO: 23hcbs - not a alphanumeric word

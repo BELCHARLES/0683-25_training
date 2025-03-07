@@ -1,0 +1,4 @@
+Mar 07, 2025 7:33:20 AM com.ztasks.filehandling.runner.FileRunner storeProps
+INFO: Properties stored to file successfully
+Mar 07, 2025 7:34:08 AM com.ztasks.filehandling.runner.FileRunner readProperties
+INFO: {E002=Invalid format. Required format: {FORMAT}., E001=is required}
