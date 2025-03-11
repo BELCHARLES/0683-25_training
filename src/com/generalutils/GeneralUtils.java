@@ -218,48 +218,28 @@ public class GeneralUtils {
 	}
 
 	public static void validateTextField(String input,String fieldName) throws ValidationException {
-		try {
-			checkPattern(NAMEPATTERN, input);
-		} catch (ValidationException e) {
-			String field = fieldName;
-			String additionalInfo = "Must contain only letters and spaces";
-			throw customizedException(e, field, additionalInfo);
-		}
+		checkPattern(NAMEPATTERN, input);
 	}
 	
 	public static void validateMobile(String mobile) throws ValidationException {
-		try {
-			checkPattern(PHONEPATTERN, mobile);
-		} catch (ValidationException e) {
-			String field = "Mobile";
-			String additionalInfo = "Only 10 digits allowed";
-			throw customizedException(e, field, additionalInfo);
-		}
+		checkPattern(PHONEPATTERN, mobile);
 	}
 	
 	public static void validateEmail(String email) throws ValidationException {
-		try {
-			checkPattern(MAILPATTERN, email);
-		} catch (ValidationException e) {
-			String field = "Email";
-			String additionalInfo = "Invalid email format. Please enter a valid email (e.g., example@domain.com).";
-			throw customizedException(e, field, additionalInfo);
-		}
+		checkPattern(MAILPATTERN, email);
 	}
 	
 	
 
-	private static ValidationException customizedException(ValidationException e, String field, String additionalInfo) {
-		switch (e.getErrorCode()) {
-		case "E001":
-			return new ValidationException(e.getErrorCode(), field); 
-		case "E002":
-			return new ValidationException(e.getErrorCode(), field, additionalInfo);																									
-		default:
-			return e;
-		}
-
-	}
+	/*
+	 * private static ValidationException customizedException(ValidationException e,
+	 * String field, String additionalInfo) { switch (e.getErrorCode()) { case
+	 * "E001": return new ValidationException(e.getErrorCode(), field); case "E002":
+	 * return new ValidationException(e.getErrorCode(), field, additionalInfo);
+	 * default: return e; }
+	 * 
+	 * }
+	 */
 }
 
 //startindex logic for string delimiter

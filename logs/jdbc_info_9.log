@@ -1,0 +1,8 @@
+Mar 11, 2025 10:44:01 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: 0employee details added successfully
+Mar 11, 2025 10:44:01 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: The following employees were not added due to the following ...
+Mar 11, 2025 10:44:01 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: Employee: Employee { ID=0, Name='12345', Mobile='1234567899', Email='xfrtgb@cghn.vjnmkl', Department='cffr' }
+Mar 11, 2025 10:44:01 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - name: E002
