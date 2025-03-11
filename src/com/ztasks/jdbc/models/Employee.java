@@ -35,15 +35,18 @@ public class Employee {
 		this.department = department;
 	}
 	
+	@Override
 	public String toString() {
-        return "Employee { " +
-                "ID=" + id +
-                ", Name='" + name + '\'' +
-                ", Mobile='" + mobile + '\'' +
-                ", Email='" + email + '\'' +
-                ", Department='" + department + '\'' +
-                " }";
-    }
+	    return new StringBuilder("Employee { ")
+	            .append("ID=").append(id)
+	            .append(", Name='").append(name).append('\'')
+	            .append(", Mobile='").append(mobile).append('\'')
+	            .append(", Email='").append(email).append('\'')
+	            .append(", Department='").append(department).append('\'')
+	            .append(" }")
+	            .toString();
+	}
+
 	
 	
 	

@@ -1,0 +1,14 @@
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: 0employee details added successfully
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: The following employees were not added due to the following ...
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: Employee: Employee { ID=0, Name='23', Mobile='12w', Email='w3', Department='13' }
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - name: Invalid format. 
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - mobile: Invalid format. 
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - department: Invalid format. 
+Mar 11, 2025 10:58:16 AM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - email: Invalid format. 
