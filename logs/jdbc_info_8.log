@@ -1,0 +1,18 @@
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: 1employee details added successfully
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: Employee: Employee { ID=0, Name='23', Mobile='r2', Email='frd', Department='3ew' }
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - Department: Must contain only letters and spaces
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - Email: Invalid email format. Please enter a valid email (e.g., example@domain.com).
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - Mobile: Only 10 digits allowed
+Mar 10, 2025 1:35:26 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - Name: Must contain only letters and spaces
+Mar 10, 2025 2:43:37 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: 0employee details added successfully
+Mar 10, 2025 2:43:37 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO: Employee: Employee { ID=0, Name='qwerty', Mobile='123333333', Email='buy@FDGHGVU.NBJH', Department='CFVH' }
+Mar 10, 2025 2:43:37 PM com.ztasks.jdbc.runner.JdbcRunner addUsers
+INFO:   - Mobile: Only 10 digits allowed

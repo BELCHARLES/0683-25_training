@@ -3,13 +3,16 @@ package com.ztasks.jdbc.runner;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.exception.InvalidArgumentException;
 import com.generalutils.logger.CustomLogger;
 import com.ztasks.jdbc.task.JdbcTask;
 import com.ztasks.jdbc.models.Employee;
+import com.ztasks.jdbc.models.EmployeeResultWrapper;
 
 public class JdbcRunner {
 	
@@ -18,7 +21,7 @@ public class JdbcRunner {
 	private void printChoiceList() {
 		System.out.println("\nSno.    Functions");
 		System.out.println("1 Add employees");
-		System.out.println("2 ");
+		System.out.println("2 Retrieve details by name");
 		System.out.println("3 ");
 		System.out.println("4 ");
 		System.out.println("5 ");
@@ -52,12 +55,33 @@ public class JdbcRunner {
 		return employees;
 	}
 	
-	public void addUsers(Scanner sc) {
+	public void addUsers(Scanner sc) throws InvalidArgumentException {
 		JdbcTask task = new JdbcTask();
 		List<Employee> list = getEmployees(sc);
-//		int insertCount = task.addEmployees(list);
-//		LOGGER.info(insertCount+" employees added successfully");
+		
+		EmployeeResultWrapper result = task.processAndAddEmployees(list);
+		
+		System.out.println(result.getSuccessCount()+" employee details added successfully");
+		LOGGER.info(result.getSuccessCount()+"employee details added successfully");
+		if(!result.isAllSuccess()) {
+			LOGGER.info("The following employees were not added due to the following ...");
+			System.out.println("The following employees were not added due to the following ...");
+			for (Map.Entry<Employee, Map<String, String>> entry : result.getFailedEntries().entrySet()) {
+	            Employee employee = entry.getKey();
+	            Map<String, String> failureReasons = entry.getValue();
+	            
+	            System.out.println("Employee: " + employee);
+	            LOGGER.info("Employee: " + employee);
+	            
+	            for (Map.Entry<String, String> reasonEntry : failureReasons.entrySet()) {
+	                System.out.println("  - " + reasonEntry.getKey() + ": " + reasonEntry.getValue());
+	                LOGGER.info("  - " + reasonEntry.getKey() + ": " + reasonEntry.getValue());
+	            }
+	        }
+		}
 	}
+	
+	public void retrieve
 
 	public static void main(String args[]) throws SecurityException, IOException {
 		Scanner sc = new Scanner(System.in);
@@ -77,6 +101,7 @@ public class JdbcRunner {
 					runner.addUsers(sc);
 					break;
 				case 2:
+					runner.retrieveDetailsByName(sc);
 					break;
 				case 3:
 					break;

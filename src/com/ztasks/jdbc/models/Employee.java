@@ -35,6 +35,16 @@ public class Employee {
 		this.department = department;
 	}
 	
+	public String toString() {
+        return "Employee { " +
+                "ID=" + id +
+                ", Name='" + name + '\'' +
+                ", Mobile='" + mobile + '\'' +
+                ", Email='" + email + '\'' +
+                ", Department='" + department + '\'' +
+                " }";
+    }
+	
 	
 	
 }
