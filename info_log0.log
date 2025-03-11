@@ -1,14 +1,4 @@
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of VIOLET is 1 Ordinal: 0
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of INDIGO is 2 Ordinal: 1
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of BLUE is 3 Ordinal: 2
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of GREEN is 4 Ordinal: 3
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of YELLOW is 5 Ordinal: 4
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of ORANGE is 6 Ordinal: 5
-Mar 06, 2025 3:06:07 PM com.ztasks.filehandling.runner.FileRunner testRainbowEnum
-INFO: Colour code of RED is 7 Ordinal: 6
+Mar 10, 2025 10:31:21 AM com.ztasks.filehandling.runner.FileRunner checkDST
+INFO: 2004-03-12T00:00-04:00[America/Cuiaba]
+Mar 10, 2025 10:31:21 AM com.ztasks.filehandling.runner.FileRunner checkDST
+INFO: 2002-12-12T00:00-03:00[America/Cuiaba]

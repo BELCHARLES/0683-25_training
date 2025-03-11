@@ -45,7 +45,7 @@ public class EmployeeDAO {
 	}
 	
 	 public boolean insertEmployee(Employee emp) {
-	        String sql = "INSERT INTO Employee (name, mobile, email, department) VALUES (?, ?, ?, ?)";
+	        String sql = "INSERT INTO employee (name, mobile, email, department) VALUES (?, ?, ?, ?)";
 
 	        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 	             PreparedStatement pstmt = conn.prepareStatement(sql)) {
