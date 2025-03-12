@@ -1,7 +1,0 @@
-Mar 11, 2025 10:41:31 PM com.ztasks.jdbc.runner.JdbcRunner main
-SEVERE: Exception occurred
-com.exception.ValidationException: Invalid employee id selected
-	at com.ztasks.jdbc.task.JdbcTask.getUpdatedEmployee(JdbcTask.java:78)
-	at com.ztasks.jdbc.runner.JdbcRunner.updateDetail(JdbcRunner.java:155)
-	at com.ztasks.jdbc.runner.JdbcRunner.main(JdbcRunner.java:209)
-

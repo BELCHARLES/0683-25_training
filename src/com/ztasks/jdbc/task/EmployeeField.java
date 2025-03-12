@@ -5,7 +5,9 @@ import com.exception.ValidationException;
 public enum EmployeeField {
 	MOBILE (1,"mobile"),
 	EMAIL (2,"email"),
-	DEPARTMENT (3,"department");
+	DEPARTMENT (3,"department"),
+	NAME (4,"name"),
+	ID (5,"emp_id");
 	
 
 	private final int choice;
