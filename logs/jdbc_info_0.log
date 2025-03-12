@@ -1,0 +1,124 @@
+Mar 12, 2025 6:54:16 PM com.ztasks.jdbc.runner.JdbcRunner printNomineeDetailsForFirstNEmployees
+INFO: [
+    {
+        "employeeName": "belcy",
+        "nomineeAge": 38,
+        "nomineeId": 1,
+        "employeeId": 1,
+        "nomineeName": "swamy",
+        "relationship": "mentor"
+    },
+    {
+        "employeeName": "belcy",
+        "nomineeAge": 38,
+        "nomineeId": 2,
+        "employeeId": 1,
+        "nomineeName": "Swamy",
+        "relationship": "Mentor"
+    },
+    {
+        "employeeName": "Jane Smith",
+        "nomineeAge": 45,
+        "nomineeId": 5,
+        "employeeId": 4,
+        "nomineeName": "Kumar",
+        "relationship": "Father"
+    },
+    {
+        "employeeName": "Jane Smith",
+        "nomineeAge": 30,
+        "nomineeId": 6,
+        "employeeId": 5,
+        "nomineeName": "Meena",
+        "relationship": "Friend"
+    },
+    {
+        "employeeName": "John Doe",
+        "nomineeAge": 0,
+        "nomineeId": 0,
+        "employeeId": 6
+    },
+    {
+        "employeeName": "John Doe",
+        "nomineeAge": 35,
+        "nomineeId": 4,
+        "employeeId": 3,
+        "nomineeName": "Anita",
+        "relationship": "Sister"
+    }
+]
+Mar 12, 2025 6:57:20 PM com.ztasks.jdbc.runner.JdbcRunner printNomineeDetailsForFirstNEmployees
+INFO: [
+    {
+        "employeeName": "Anjali Sharma",
+        "nomineeAge": 35,
+        "nomineeId": 3,
+        "employeeId": 2,
+        "nomineeName": "Amit Sharma",
+        "relationship": "Brother"
+    },
+    {
+        "employeeName": "Arun Raj",
+        "nomineeAge": 40,
+        "nomineeId": 7,
+        "employeeId": 5,
+        "nomineeName": "Karthik Raj",
+        "relationship": "Brother"
+    },
+    {
+        "employeeName": "Divya Menon",
+        "nomineeAge": 0,
+        "nomineeId": 0,
+        "employeeId": 10
+    },
+    {
+        "employeeName": "Kavitha Nair",
+        "nomineeAge": 0,
+        "nomineeId": 0,
+        "employeeId": 8
+    },
+    {
+        "employeeName": "Meera Iyer",
+        "nomineeAge": 0,
+        "nomineeId": 0,
+        "employeeId": 6
+    },
+    {
+        "employeeName": "Priya Singh",
+        "nomineeAge": 58,
+        "nomineeId": 6,
+        "employeeId": 4,
+        "nomineeName": "Meena Singh",
+        "relationship": "Mother"
+    },
+    {
+        "employeeName": "Priya Singh",
+        "nomineeAge": 65,
+        "nomineeId": 5,
+        "employeeId": 4,
+        "nomineeName": "Rajesh Singh",
+        "relationship": "Father"
+    },
+    {
+        "employeeName": "Ravi Kumar",
+        "nomineeAge": 60,
+        "nomineeId": 1,
+        "employeeId": 1,
+        "nomineeName": "Ramesh Kumar",
+        "relationship": "Father"
+    },
+    {
+        "employeeName": "Ravi Kumar",
+        "nomineeAge": 55,
+        "nomineeId": 2,
+        "employeeId": 1,
+        "nomineeName": "Seema Kumar",
+        "relationship": "Mother"
+    },
+    {
+        "employeeName": "Rohit Das",
+        "nomineeAge": 0,
+        "nomineeId": 0,
+        "employeeId": 7
+    }
+]

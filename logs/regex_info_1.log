@@ -1,6 +1,0 @@
-Mar 06, 2025 12:04:14 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
-INFO: JavaGuidesis alphanumeric? true
-Mar 06, 2025 12:04:56 PM com.ztasks.regex.runner.RegexRunner isAlphaNumeric
-INFO: JavaGuides-----////is alphanumeric? false
-Mar 06, 2025 12:06:59 PM com.ztasks.regex.runner.RegexRunner handleHtmlTagExtraction
-INFO: HTML Tags: [<p>, <code>, </code>]

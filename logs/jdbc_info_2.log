@@ -1,2 +1,10 @@
-Mar 11, 2025 12:14:44 PM com.ztasks.jdbc.runner.JdbcRunner logEmployees
-INFO: Employee { ID=1, Name='belcy', Mobile='1234567890', Email='we@together.com', Department='cse' }
+Mar 12, 2025 3:57:18 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
+INFO: Nominee { Nominee ID=0, Employee ID=6, Name='helo', Age=12, Relationship='hai' }
+Mar 12, 2025 3:57:18 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
+INFO: Nominee { Nominee ID=0, Employee ID=1, Name='swamy', Age=38, Relationship='mentor' }
+Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
+INFO: Nominee { Nominee ID=0, Employee ID=2, Name='234', Age=23, Relationship='we' }
+Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
+INFO: Nominee { Nominee ID=0, Employee ID=2, Name='nantha', Age=12, Relationship='fiancee' }
+Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
+INFO: Nominee { Nominee ID=0, Employee ID=2, Name='wer', Age=34, Relationship='123' }

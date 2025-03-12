@@ -228,6 +228,12 @@ public class GeneralUtils {
 	public static void validateEmail(String email) throws ValidationException {
 		checkPattern(MAILPATTERN, email);
 	}
+
+	public static void validateAge(int age) throws ValidationException {
+		if(age<18) {
+			throw new ValidationException("E003");
+		}
+	}
 	
 	
 
