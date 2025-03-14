@@ -1,10 +1,37 @@
-Mar 12, 2025 3:57:18 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
-INFO: Nominee { Nominee ID=0, Employee ID=6, Name='helo', Age=12, Relationship='hai' }
-Mar 12, 2025 3:57:18 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
-INFO: Nominee { Nominee ID=0, Employee ID=1, Name='swamy', Age=38, Relationship='mentor' }
-Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
-INFO: Nominee { Nominee ID=0, Employee ID=2, Name='234', Age=23, Relationship='we' }
-Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
-INFO: Nominee { Nominee ID=0, Employee ID=2, Name='nantha', Age=12, Relationship='fiancee' }
-Mar 12, 2025 4:43:32 PM com.ztasks.jdbc.runner.JdbcRunner logNominees
-INFO: Nominee { Nominee ID=0, Employee ID=2, Name='wer', Age=34, Relationship='123' }
+Mar 13, 2025 10:36:49 AM com.ztasks.jdbc.runner.JdbcRunner printNomineeDetailsForFirstNEmployees
+INFO: [
+    {
+        "employeeName": "Anjali Sharma",
+        "nomineeAge": 35,
+        "nomineeId": 3,
+        "employeeId": 2,
+        "nomineeName": "Amit Sharma",
+        "relationship": "Brother"
+    },
+    {
+        "employeeName": "Anjali Sharma",
+        "nomineeAge": 22,
+        "nomineeId": 8,
+        "employeeId": 2,
+        "nomineeName": "prabha",
+        "relationship": "hai"
+    },
+    {
+        "employeeName": "Ravi Kumar",
+        "nomineeAge": 60,
+        "nomineeId": 1,
+        "employeeId": 1,
+        "nomineeName": "Ramesh Kumar",
+        "relationship": "Father"
+    },
+    {
+        "employeeName": "Ravi Kumar",
+        "nomineeAge": 55,
+        "nomineeId": 2,
+        "employeeId": 1,
+        "nomineeName": "Seema Kumar",
+        "relationship": "Mother"
+    }
+]
+Mar 13, 2025 2:52:48 PM com.ztasks.jdbc.runner.JdbcRunner logEmployees
+INFO: No records found

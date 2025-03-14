@@ -2,6 +2,7 @@ package com.ztasks.jdbc.task;
 
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -22,29 +23,34 @@ import com.ztasks.jdbc.task.dao.NomineeDAO;
 
 public class JdbcTask {
 
-	public EmployeeResultWrapper processAndAddEmployees(List<Employee> list)
+	public EmployeeResultWrapper processAndAddEmployees(List<Employee> employees)
 			throws InvalidArgumentException, ValidationException {
 		try {
 
-			int length = GeneralUtils.findLength(list);
+			int length = GeneralUtils.findLength(employees);
 			Map<Employee, Map<String, String>> errorHolder = new HashMap<>();
 			boolean isAllSuccess = true;
 			EmployeeDAO empDao = new EmployeeDAO();
 			int successCount = 0;
 
-			for (int i = 0; i < length; i++) {
-				Employee employee = list.get(i);
+			 Iterator<Employee> iterator = employees.iterator();
+		        while (iterator.hasNext()) {
+		            Employee employee = iterator.next();
 
-				Map<String, String> errors = EmployeeValidation.validateEmployee(employee);
-				if (!errors.isEmpty()) {
-					errorHolder.put(employee, errors);
-					isAllSuccess = false;
-					continue;
-				}
+		            Map<String, String> errors = EmployeeValidation.validateEmployee(employee);
+		            if (!errors.isEmpty()) {
+		                errorHolder.put(employee, errors);
+		                iterator.remove(); 
+		                isAllSuccess = false;
+		                continue;
+		            }
 
-				empDao.insertEmployee(employee);
-				successCount++;
-			}
+		            successCount++;
+		        }
+
+		        if (!employees.isEmpty()) {
+		            empDao.insertEmployee(employees);
+		        }
 
 			return new EmployeeResultWrapper(isAllSuccess, errorHolder, successCount);
 		} catch (SQLException e) {
@@ -135,30 +141,34 @@ public class JdbcTask {
 		}
 	}
 	
-	public NomineeResultWrapper processAndAddNominees(List<Nominee> list)
+	public NomineeResultWrapper processAndAddNominees(List<Nominee> nominees)
 			throws InvalidArgumentException, ValidationException {
 		try {
 
-			int length = GeneralUtils.findLength(list);
+			int length = GeneralUtils.findLength(nominees);
 			Map<Nominee, Map<String, String>> errorHolder = new HashMap<>();
 			boolean isAllSuccess = true;
 			NomineeDAO nomineeDao = new NomineeDAO();
 			int successCount = 0;
 
-			for (int i = 0; i < length; i++) {
-				Nominee nominee= list.get(i);
+			  Iterator<Nominee> iterator = nominees.iterator();
+		        while (iterator.hasNext()) {
+		            Nominee nominee = iterator.next();
 
-				Map<String, String> errors = NomineeValidation.validateNominee(nominee);
-				if (!errors.isEmpty()) {
-					errorHolder.put(nominee, errors);
-					isAllSuccess = false;
-					continue;
-				}
+		            Map<String, String> errors = NomineeValidation.validateNominee(nominee);
+		            if (!errors.isEmpty()) {
+		                errorHolder.put(nominee, errors);
+		                iterator.remove(); 
+		                isAllSuccess = false;
+		                continue;
+		            }
 
-				nomineeDao.insertNominee(nominee);
-				successCount++;
-			}
+		            successCount++;
+		        }
 
+		        if (!nominees.isEmpty()) {
+		            nomineeDao.insertNominee(nominees);
+		        }
 			return new NomineeResultWrapper(isAllSuccess, errorHolder, successCount);
 		} catch (SQLException e) {
 			throw new ValidationException("An error occurred while processing your request.", e);
