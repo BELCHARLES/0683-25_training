@@ -188,16 +188,6 @@ public class JdbcRunner {
 		return nominees;
 	}
 	
-	private void logNominees(List<Nominee> list) {
-		if (list.isEmpty()) {
-			LOGGER.info("No records found");
-			System.out.println("No records found");
-		}
-		for (Nominee nominee : list) {
-			System.out.println(nominee);
-			LOGGER.info(nominee.toString());
-		}
-	}
 	
 	private void logResult(NomineeResultWrapper result) throws InvalidArgumentException {
 	    System.out.println(result.getSuccessCount() + " nominee detail(s) added successfully");

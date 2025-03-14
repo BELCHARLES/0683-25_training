@@ -20,43 +20,45 @@ public class EmployeeDAO {
 	private static final String PASSWORD = "root";
 
 	public EmployeeDAO() throws SQLException {
-		ensureEmployeeTableExists();
+		createEmployeeTable();
 	}
 
-	private void ensureEmployeeTableExists() throws SQLException {
-		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			if (!isTableExists(connection, "employee")) {
-				createEmployeeTable(connection);
-			}
-		}
-	}
+	/*
+	 * private void ensureEmployeeTableExists() throws SQLException { try
+	 * (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD)) {
+	 * if (!isTableExists(connection, "employee")) {
+	 * createEmployeeTable(connection); } } }
+	 * 
+	 * private boolean isTableExists(Connection connection, String tableName) throws
+	 * SQLException { DatabaseMetaData metaData = connection.getMetaData(); try
+	 * (ResultSet resultSet = metaData.getTables(null, null, tableName, new String[]
+	 * { "TABLE" })) { return resultSet.next(); } }
+	 */
 
-	private boolean isTableExists(Connection connection, String tableName) throws SQLException {
-		DatabaseMetaData metaData = connection.getMetaData();
-		try (ResultSet resultSet = metaData.getTables(null, null, tableName, new String[] { "TABLE" })) {
-			return resultSet.next();
-		}
-	}
-
-	private void createEmployeeTable(Connection connection) throws SQLException {
-		String query = "CREATE TABLE employee (emp_id INT PRIMARY KEY AUTO_INCREMENT,name VARCHAR(100) NOT NULL, mobile VARCHAR(15) UNIQUE NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, department VARCHAR(50) NOT NULL)";
-		try (Statement stmt = connection.createStatement()) {
+	private void createEmployeeTable() throws SQLException {
+		String query = "CREATE TABLE IF NOT EXISTS employee (emp_id INT PRIMARY KEY AUTO_INCREMENT,name VARCHAR(100) NOT NULL, mobile VARCHAR(15) UNIQUE NOT NULL, email VARCHAR(100) UNIQUE NOT NULL, department VARCHAR(50) NOT NULL)";
+		try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+				Statement stmt = connection.createStatement()) {
 			stmt.executeUpdate(query);
 		}
 	}
 
-	public void insertEmployee(Employee emp) throws SQLException {
+	public void insertEmployee(List<Employee> employees) throws SQLException {
 		String sql = "INSERT INTO employee (name, mobile, email, department) VALUES (?, ?, ?, ?)";
 
 		try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-			pstmt.setString(1, emp.getName());
-			pstmt.setString(2, emp.getMobile());
-			pstmt.setString(3, emp.getEmail());
-			pstmt.setString(4, emp.getDepartment());
+			 for (Employee emp : employees) {
+		            pstmt.setString(1, emp.getName());
+		            pstmt.setString(2, emp.getMobile());
+		            pstmt.setString(3, emp.getEmail());
+		            pstmt.setString(4, emp.getDepartment());
 
-			pstmt.executeUpdate();
+		            pstmt.addBatch(); 
+		        }
+
+		        pstmt.executeBatch();
 		}
 	}
 
@@ -88,12 +90,12 @@ public class EmployeeDAO {
 		return getEmployees(limit, false, null, false);
 	}
 
-	public List<Employee> getEmployees(int limit, boolean withSorting, String columnName, boolean isAscending)
+	public List<Employee> getEmployees(int limit, boolean withSorting, String columnToSort, boolean isAscending)
 			throws SQLException {
 		List<Employee> employeeList = new ArrayList<>();
 		StringBuilder query = new StringBuilder("select * from employee");
 		if (withSorting) {
-			query.append(" Order by ").append(columnName).append(isAscending ? " ASC " : " DESC ");
+			query.append(" Order by ").append(columnToSort).append(isAscending ? " ASC " : " DESC ");
 		}
 
 		if (limit > 0) {
